@@ -9,7 +9,7 @@ from sklearn.svm import LinearSVC
 print('Train data reading...')
 df = pd.read_csv('E:/Datasets/ods_receipts_recognition_Alfabank/train_supervised_dataset.csv')
 N_value = df['brand'].iloc[1]
-df = df.fillna(value='unknown')
+df = df.fillna(value='none')
 
 # Data tokenization
 count_vect = CountVectorizer()
@@ -48,8 +48,8 @@ predicted2 = model2.predict(X_test_tfidf)
 print('Prediction done')
 
 # Result preparation
-Out1 = [LY1[predicted1[i]] if LY1[predicted1[i]] != 'unknown' else  N_value for i in range(len(df_test))]
-Out2 = [LY2[predicted2[i]] if LY2[predicted2[i]] != 'unknown' else  N_value for i in range(len(df_test))]
+Out1 = [LY1[predicted1[i]] if LY1[predicted1[i]] != 'none' else  N_value for i in range(len(df_test))]
+Out2 = [LY2[predicted2[i]] if LY2[predicted2[i]] != 'none' else  N_value for i in range(len(df_test))]
 
 # Сохраняем результат
 df_out = pd.DataFrame(list(zip(df_test['id'], Out1, Out2)),
