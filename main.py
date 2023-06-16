@@ -1,9 +1,12 @@
+import os
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import LinearSVC
 
+# Brands data reading
+df_brands = pd.read_csv('https://raw.githubusercontent.com/MikhailNebasov/list_of_brands/main/catalog_of_brands.csv', sep='\t')
 
 # Train data reading
 print('Train data reading...')
